@@ -1,0 +1,217 @@
+@import "../../../styles.scss";
+
+.navbar {
+    width: 100%;
+    height: 5vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3vw;
+    margin-top: 1vh;
+    z-index: 999;
+
+    > img {
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+        cursor: pointer;
+    }
+
+    > h3 {
+        color: white;
+        font-size: 1.4rem;
+    }
+}
+
+.settings {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        #457b9d 35%,
+        #7db9e8 35%,
+        #ffffff 35%,
+        #ffffff 35%,
+        #457b9d 35%,
+        #457b9d 35%,
+        #ffffff 35%,
+        #ffffff 60%,
+        #ffffff 100%
+    );
+    font-family: $main-font;
+    position: relative;
+}
+
+.header_wrapper {
+    height: 41vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    &__background {
+        width: 100%;
+        position: absolute;
+        height: 35vh;
+        object-fit: cover;
+        opacity: 0.1;
+        top: 0;
+        pointer-events: none;
+    }
+
+    &__balance {
+        width: 50vw;
+        min-height: 5vh;
+        background-color: rgba(0, 0, 0, 0.226);
+        margin-bottom: 5vh;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0.5vh 5vw;
+
+        > h3 {
+            color: white;
+            font-weight: 500;
+        }
+
+        > span {
+            color: white;
+            font-weight: bold;
+            margin-top: 1vh;
+            font-size: 1.2rem;
+        }
+    }
+
+    &__avatar {
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        border-radius: 50%;
+        bottom: 0;
+    }
+}
+
+.user_information {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1vh;
+
+    &__name {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    &__email {
+        color: $text-color;
+        margin-top: 1vh;
+        font-weight: 300;
+    }
+}
+
+.settings_menu {
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5vh 0;
+
+    &__option {
+        width: 80%;
+        border-bottom: 3px solid $primary-color;
+        padding-bottom: 2%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 1%;
+        margin-bottom: 5vh;
+        font-size: 1.1rem;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &_icon {
+            margin-right: 5%;
+            width: 6%;
+        }
+
+        &_arrow {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+    }
+}
+
+.full_logo {
+    width: 40%;
+    margin: 3% auto 0 auto;
+    display: block;
+}
+
+@media (min-width: 1199.98px) {
+    .header_wrapper {
+        height: 39vh;
+
+        &__avatar {
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            border-radius: 50%;
+            bottom: 0;
+        }
+    }
+
+    .user_information {
+        margin-bottom: 2vh;
+
+        &__name {
+            font-size: 1.2rem;
+        }
+        
+        &__email {
+            font-size: .9rem;
+        }
+    }
+   
+    .header_wrapper__balance {
+        width: 15vw;
+
+        > span {
+            margin-top: 0.4vh;
+            font-size: .9rem;
+        }
+    }
+
+    .settings_menu {
+        padding: 3vh 0;
+
+        &__option {
+            padding-left: .1vw;
+            width: 25%;
+            padding-bottom: 1%;
+            border-bottom: 2px solid #457b9d;
+        }
+    }
+
+    .settings_menu__option {
+
+        &_icon {
+            width: 4%;
+            
+        }
+    }
+    .full_logo {
+        width: 7%;
+        margin: 1.5% auto 0 auto;
+        display: block;
+    }
+}

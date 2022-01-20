@@ -1,0 +1,14 @@
+<section class="report_manager slide-in-bottom" #report_wrapper>
+
+  <img src="../../../assets/icons/close_small.svg" alt="" class="close_button" (click)="closeButton()">
+
+    <div class="inputDiv">
+        Reason
+        <input type="text" name="razao" placeholder="ex: Racism" #reason>
+    </div>
+    <div class="inputDiv">
+        Description
+        <textarea autosize class="evaluation_field" name="descricao" maxlength="200" placeholder="Ride Evaluation" #description></textarea>
+    </div>
+    <button type="submit" class="create" (click)="createReport(reason.value, description.value)">SUBMIT</button>
+</section>

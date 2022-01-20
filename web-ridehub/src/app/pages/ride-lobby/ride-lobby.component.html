@@ -1,0 +1,99 @@
+<app-alert-modal [status]='alertStatus' *ngIf="componentToggler.alertModal"></app-alert-modal>
+<app-ride-chat [rideDetails]='rideDetails' *ngIf="componentToggler.rideChat"></app-ride-chat>
+<app-driver-map [rideDetails]='rideDetails' *ngIf="componentToggler.rideMap"></app-driver-map>
+<app-evaluate-ride-modal [evaluationInformation]="evaluationInformation" *ngIf='componentToggler.evaluationModal'></app-evaluate-ride-modal>
+
+<section id="ride-lobby">
+    <nav class="nav_goback">
+        <img src="../../../assets/icons/arrow_back.svg" [routerLink]="['/current-listed']" alt="">
+        <span>Ride Details</span>
+
+        <div class="dropdown" *ngIf="this.isOwner">
+            <img src="../../../assets/icons/settings.svg" class="dropdown-toggler" alt="">
+            <div class="dropdown-content">
+                <span (click)="rideMap()"><img src="../../../assets/icons/map.svg" alt="">
+                    <p>Ride Map</p>
+                </span>
+                <span (click)="cancelRide()" class="alert"><img src="../../../assets/icons/trash.svg" alt="">
+                    <p>Delete Ride</p>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="driver_information">
+        <div class="driver_information__avatar_border">
+            <img src='https://avatars.dicebear.com/api/bottts/{{currentRide.id_utilizador}}.svg' alt="">
+        </div>
+        <span class="driver_information__driver_name">{{currentRide.nome}}</span>
+        <div class="driver_information__socials">
+            <img src="../../../assets/icons/socials/instagram.svg" alt="">
+            <img src="../../../assets/icons/socials/messenger.svg" alt="">
+            <img src="../../../assets/icons/socials/snapchat.svg" alt="">
+        </div>
+    </header>
+
+    <div class="ride_data">
+        <div class="ride_data__locations">
+            <span><abbr title="{{currentRide.origem}}">{{ currentRide.origem | slice:0:10}}..</abbr>.</span>
+            <img src="../../../assets/icons/from-to.svg" alt="">
+            <span><abbr title="{{currentRide.destino}}">{{ currentRide.destino | slice:0:10}}...</abbr></span>
+        </div>
+        <div class="ride_data__schedule">
+            <img src="../../../assets/icons/clock.svg" alt="">
+            <span>{{ currentRide.data | date: 'shortTime'}}</span>
+        </div>
+    </div>
+
+    <section id="ride_details">
+        <div class="ride_details_container">
+            <p class="ride_details_container__title">DRIVER DETAILS</p>
+            <p class="ride_details_container__text">{{ currentRide.utilizadorDescricao }}</p>
+        </div>
+
+        <div class="ride_details_container">
+            <p class="ride_details_container__title">CONFIRMED - {{ currentUsers.length }}/{{
+                currentRide.lugares_disponiveis }}</p>
+
+            <!-- CARDS -->
+            <div class="ride_details_container__horizontal" *ngFor="let user of currentUsers; let i = index;" (click)="openProfile(user.id_utilizador)">
+                <div class="ride_details_container__avatar">
+                    <img src='https://avatars.dicebear.com/api/bottts/{{ user.id_utilizador }}.svg' alt="">
+                </div>
+                <div class="ride_details_container__identification">
+                    <p class="ride_details_container__horizontal__name">{{ user.nome }}</p>
+                    <p class="ride_details_container__text">{{ user.descricao | slice:0:25}}...</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="ride_details_container">
+            <p class="ride_details_container__title">DRIVER NOTES</p>
+            <p class="ride_details_container__text">{{ currentRide.descricao }}</p>
+
+            <div class="ride_details_container__horizontal">
+                <img class="ride_details_container__svg" src="../../../assets/icons/calendar.svg" alt="">
+                <p class="ride_details_container__text">{{ currentRide.data | date}}</p>
+            </div>
+            <div class="ride_details_container__horizontal">
+                <img class="ride_details_container__svg" src="../../../assets/icons/phone.svg" alt="">
+                <p class="ride_details_container__text">{{ currentRide.n_telemovel }}</p>
+            </div>
+            <div class="ride_details_container__horizontal">
+                <img class="ride_details_container__svg" src="../../../assets/icons/euro-circle.svg" alt="">
+                <p class="ride_details_container__text">{{ currentRide.custo | currency:'':'' }}</p>
+            </div>
+        </div>
+
+        <button #buttonJoin
+            *ngIf="this.currentRide.estado == 'W' && this.currentRide.lugares_disponiveis > this.currentUsers.length && !this.isOnRide"
+            (click)="verifyUserMoney()">Join</button>
+
+        <button #buttonEvaluate *ngIf="this.currentRide.estado == 'F' && this.isOnRide && !this.evaluated" (click)="evaluateRide()">Evaluate Ride</button>
+
+        <button #buttonDelete *ngIf="this.isOnRide && !this.isOwner && this.currentRide.estado == 'W'" (click)="leaveRide()">Leave</button>
+        <div class="button_ride_chat" *ngIf="this.isOnRide" (click)="rideChat()">
+            <img src="../../../assets/icons/chat-icon.svg" alt="">
+        </div>
+    </section>
+</section>

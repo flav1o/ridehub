@@ -1,0 +1,30 @@
+<app-alert-modal [status]='alertStatus' *ngIf="componentToggler.alertModal"></app-alert-modal>
+<section id="login-component">
+    <img class="logo" src="../../../../assets/logos/full_logo.svg" alt="Website logo">
+
+    <div class="apresentation">
+        <h2 class="apresentation__title">Log Into your account</h2>
+        <p class="apresentation__description">Welcome to RideHub, enter your details below before starting sharing rides!</p>
+    </div>
+
+    <form class="login__form" #loginForm="ngForm" (ngSubmit)="sendForm(loginForm)">
+        <span class="login__form__item">
+            <span>Email</span>
+            <input type="text" name="email" minlength="5" required ngModel>
+        </span>
+        <span class="login__form__item">
+            <span>Password</span>
+            <input type="password" name="password" required ngModel>
+        </span>
+        <div class="form__action__triggers">
+            <input type="submit" value="Log In">
+            <span  class="trigger__reset__password" [routerLink]="['/forget-password']">Forgot Password? Click Here</span>
+        </div>
+    </form>
+
+    <div class="noaccount">
+        <hr>
+        <p>You don't have one account?</p>
+        <a class="noaccount__register__trigger"  [routerLink]="['/register']">Register Now</a>
+    </div>
+</section>

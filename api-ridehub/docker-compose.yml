@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  ridehub_postgres:
+    image: postgres:14.1-alpine
+    environment:
+      POSTGRES_DB: ridehub
+      POSTGRES_PASSWORD: 754321
+      POSTGRES_USER: postgres
+    restart: unless-stopped
+    hostname: ridehub-postgres
+    container_name: ridehub-postgres
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - ridehub-db-data:/var/lib/postgresql/data
+    networks:
+      - dwmnet  
+
+  ridehub: 
+    build: .
+    ports:
+      - 80:3000
+    links:
+      - ridehub_postgres
+    environment:
+      DB_URL: postgresql://postgres:postgres@ridehub-postgres:5432/ridehub
+      PERSISTENCE_TYPE: postgres
+    networks:
+      - dwmnet
+
+volumes:
+  ridehub-db-data: null
+
+networks:
+  dwmnet:
+    driver: bridge

@@ -1,0 +1,26 @@
+<section id="htmlData">
+  <img class="logo_ridehub" src="../../../../assets/logos/full_logo.svg" alt="">
+  <header class="user_header_data">
+    <img src="../../../../assets/logos/icon_logo.svg" alt="">
+    <div class="user_header_data__details">
+      <span class="user_header_data__details__name">{{userInfo.nome}}</span>
+      <span class="user_header_data__details__phone">{{userInfo.n_telemovel}}</span>
+    </div>
+    <span class="print_date">{{currentDate | date:'dd/MM/yyyy HH:mm'}}</span>
+  </header>
+  <table>
+    <tr>
+      <th>TRANSACTION ID</th>
+      <th>AMMOUNT</th>
+      <th>DATE</th>
+      <th>TYPE</th>
+    </tr>
+  <tr *ngFor="let item of userTransactions.reverse().slice(0,33)">
+      <td>{{item.id_transacao}}</td>
+      <td>{{item.montante | currency:'':''}} €</td>
+      <td>{{item.data | date:'dd/MM/yyyy HH:mm'}}</td>
+      <td>{{item.tipo}}</td>
+    </tr>
+  </table>
+
+</section>

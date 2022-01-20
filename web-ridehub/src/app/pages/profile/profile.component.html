@@ -1,0 +1,124 @@
+<app-nav-bar></app-nav-bar>
+<app-report-modal *ngIf="componentToggler.reportModal"></app-report-modal>
+
+<section id="profile">
+    <nav class="nav_goback">
+        <span>{{userInformation.nome}}</span>
+
+        <div class="dropdown">
+            <img src="../../../assets/icons/settings.svg" class="dropdown-toggler" alt="">
+            <div class="dropdown-content">
+                <span [routerLink]="['/settings']" *ngIf="userID === profileID">
+                    <img src="../../../assets/icons/settings.svg" alt="" >
+                    <p>Settings</p>
+                </span>
+                <span class="alert" (click)="signOut()" *ngIf="userID === profileID">
+                    <img src="../../../assets/icons/sign-out.svg" alt="">
+                    <p>Sign Out</p>
+                </span>
+                <span class="alert" (click)="callReportModal()" *ngIf="userID !== profileID">
+                    <img src="../../../assets/icons/report.svg" alt="">
+                    <p>Report</p>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="driver_information">
+        <div class="driver_information__avatar_border">
+            <img src='https://avatars.dicebear.com/api/bottts/{{profileID}}.svg' alt="">
+        </div>
+        <div class="driver_information__socials">
+            <img src="../../../assets/icons/socials/instagram.svg" alt="" (click)="openSocial(userInformation.instagram)">
+            <img src="../../../assets/icons/socials/messenger.svg" alt="" (click)="openSocial(userInformation.twitter)">
+            <img (click)="copyContent()" src="../../../assets/icons/socials/snapchat.svg" alt="">
+          </div>
+        <span class="driver_information__description">{{userInformation.descricao}}</span>
+    </header>
+
+    <div class="rides" *ngIf="userID === profileID">
+      <h3>Your Active Rides</h3>
+        <div class="rides__slide_wrapper">
+          <div class="no_reviews" *ngIf="activeRides.length === 0">
+            <img src="../../../assets/logos/icon_logo.svg" alt="">
+            <span>NO ACTIVE RIDES!</span>
+          </div>
+          <swiper
+              [spaceBetween]="30" [centeredSlides]="true"
+              [autoplay]="{ delay: 4500, disableOnInteraction: false }"
+              class="rideSwiper">
+            <ng-template swiperSlide *ngFor="let item of activeRides" >
+              <div (click)="goRide(item.id_viagem)">
+                <div class="rideSwiper__places__wrapper__active">
+                  <span><abbr title="{{item.origem}}">{{ item.origem | slice:0:10}}..</abbr>.</span>
+                  <img src="../../../assets/icons/from-to.svg" alt="">
+                  <span><abbr title="{{item.destino}}">{{ item.destino | slice:0:10}}...</abbr></span>
+                </div>
+                <div class="rideSwiper__description">
+                    <span>{{item.descricao}}</span>
+                </div>
+              </div>
+            </ng-template>
+          </swiper>
+        </div>
+    </div>
+
+    <div class="rides">
+      <h3>Active Driver Rides</h3>
+        <div class="rides__slide_wrapper">
+          <div class="no_reviews" *ngIf="driverRides.length === 0">
+            <img src="../../../assets/logos/icon_logo.svg" alt="">
+            <span>NO ACTIVE RIDES!</span>
+          </div>
+          <swiper
+              [spaceBetween]="30" [centeredSlides]="true"
+              [autoplay]="{ delay: 4500, disableOnInteraction: false }"
+              class="rideSwiper">
+            <ng-template swiperSlide *ngFor="let item of driverRides" >
+              <div (click)="goRide(item.id_viagem)">
+                <div class="rideSwiper__places__wrapper">
+                  <span><abbr title="{{item.origem}}">{{ item.origem | slice:0:10}}..</abbr>.</span>
+                  <img src="../../../assets/icons/from-to.svg" alt="">
+                  <span><abbr title="{{item.destino}}">{{ item.destino | slice:0:10}}...</abbr></span>
+                </div>
+                <div class="rideSwiper__occupants_wrapper">
+                    <img src="../../../assets/icons/profile.svg" alt="">
+                    <span>{{item.ocupantes}}</span>
+                </div>
+                <div class="rideSwiper__description">
+                    <span>{{item.descricao}}</span>
+                </div>
+              </div>
+            </ng-template>
+          </swiper>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <h3>Last Reviews</h3>
+        <div class="reviews__slide_wrapper">
+          <div class="no_reviews" *ngIf="userReviews.length === 0">
+            <img src="../../../assets/logos/icon_logo.svg" alt="">
+            <span>NO REVIEWS YET!</span>
+          </div>
+          <swiper
+              [spaceBetween]="30" [centeredSlides]="true"
+              [autoplay]="{ delay: 4500, disableOnInteraction: false }"
+              class="reviewSwiper">
+            <ng-template swiperSlide *ngFor="let item of userReviews">
+                <div class="reviewSwiper__avatar_wrapper">
+                    <img src="https://avatars.dicebear.com/api/bottts/{{item.id_avaliador}}.svg" alt="">
+                    <span>{{item.nome}}</span>
+                </div>
+                <div class="reviewSwiper__evaluation_wrapper">
+                    <img src="../../../assets/icons/half-star.svg" alt="">
+                    <span>{{item.nota}}</span>
+                </div>
+                <div class="reviewSwiper__description">
+                    <span>{{item.descricao}}</span>
+                </div>
+            </ng-template>
+          </swiper>
+        </div>
+    </div>
+</section>

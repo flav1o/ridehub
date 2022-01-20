@@ -1,0 +1,135 @@
+<app-description [receivedData]="sendData" *ngIf="compToggler.description"></app-description>
+<app-request [receivedData]="sendData" *ngIf="compToggler.request"></app-request>
+
+
+<nav class="navbar">
+    <span class="navbar__logo">RIDEHUB</span>
+    <a href="https://gitlab.com/ipca-dcs/202122a/share-a-ride" target="_blank"><img class="navbar__gitlab" src="../../../assets/icons/gitlab_logo.svg" alt=""></a>
+</nav>
+
+<div class="apresentation">
+    <h1 class="apresentation__title">API SPECIFICATION</h1>
+    <p class="apresentation__description">The items below show us all requests that can be made with the api!</p>
+    <p class="apresentation__description">The api is still beeing developed, so there's going to be updates on this
+        page! We recommend daily checks on this page, so you can make sure the requests are being done in a good way!
+    </p>
+</div>
+
+<section class="documentation">
+    <div class="documentation__item">
+        <h3 #title_auths>{{auths.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of auths.requests; index as i">
+            <span class="documentation__request__type">{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_auths.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_auths.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+        <h3 #title_users>{{users.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of users.requests; index as i">
+            <span class="documentation__request__type">{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_users.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_users.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+        <h3 #title_evaluation>{{evaluation.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of evaluation.requests; index as i">
+            <span class="documentation__request__type">{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_evaluation.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_evaluation.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+        <h3 #title_reports>{{reports.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of reports.requests; index as i">
+            <span class="documentation__request__type">{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_reports.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_reports.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+        <h3 #title_rides>{{rides.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of rides.requests; index as i">
+            <span class=documentation__request__type>{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_rides.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_rides.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+        <h3 #title_occupants>{{occupants.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of occupants.requests; index as i">
+            <span class=documentation__request__type>{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_occupants.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_occupants.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+        <h3 #title_transactions>{{transactions.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of transactions.requests; index as i">
+            <span class=documentation__request__type>{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_transactions.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_transactions.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+        <h3 #title_vehicles>{{vehicles.title}}</h3>
+        <hr class="documentation__item__divider">
+        <div class="documentation__request" *ngFor="let item of vehicles.requests; index as i">
+            <span class=documentation__request__type>{{item.type}}</span>
+            <span class="documentation__request__url">{{item.route}}</span>
+            <div class="documentation__request_options">
+                <button (click)="openDescription(i, title_vehicles.innerHTML)">Description</button>
+                <button (click)="openRequest(i, title_vehicles.innerHTML)">Request</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="documentation__item">
+      <h3 #title_chats>{{chats.title}}</h3>
+      <hr class="documentation__item__divider">
+      <div class="documentation__request" *ngFor="let item of chats.requests; index as i">
+          <span class=documentation__request__type>{{item.type}}</span>
+          <span class="documentation__request__url">{{item.route}}</span>
+          <div class="documentation__request_options">
+              <button (click)="openDescription(i, title_chats.innerHTML)">Description</button>
+              <button (click)="openRequest(i, title_chats.innerHTML)">Request</button>
+          </div>
+      </div>
+  </div>
+</section>

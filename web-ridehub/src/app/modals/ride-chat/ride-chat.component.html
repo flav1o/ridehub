@@ -1,0 +1,40 @@
+<section id="ride-chat" class="slide-in-bottom" #rideChat>
+
+    <nav class="nav_goback">
+        <img src="../../../assets/icons/arrow_back.svg" alt="" (click)="hideChat()">
+        <span>Ride Chat</span>
+        <div class="nav_goback__refresh_icon" (click)="getChatMessages()">
+            <img src="../../../assets/icons/reload.svg" class="dropdown-toggler" alt="">
+        </div>
+    </nav>
+
+    <main class="chat_wrapper" #chatwrapper>
+
+        <div class="no_messages" *ngIf="chatMessages.length === 0">
+            <img src="../../../assets/logos/icon_logo.svg" alt="">
+            <span>NO MESSAGES YET!</span>
+        </div>
+
+        <div class="chat_item" *ngFor="let message of chatMessages">
+            <div class="chat_item__avatar">
+                <img src='https://avatars.dicebear.com/api/bottts/{{ message["id_utilizador"] }}.svg' alt="" (click)="getChatMessages()">
+            </div>
+            <div class="chat_item__message">
+                <div class="chat_item__message__content">
+                    <p>{{message['mensagem']}}</p>
+                </div>
+            </div>
+            <span class="chat_item__username">{{ message['nome'] }}</span>
+            <span class="chat_item__date">{{ message['data'] | date: 'HH:mm'}}</span>
+        </div>
+
+    </main>
+
+    <div class="chat_input_wrapper">
+        <div class="inputs">
+            <textarea autosize placeholder="Type Your Message" class="chat_input_wrapper__input" #messageInput></textarea>
+            <img class="chat_input_wrapper__send_message" src="../../../assets/icons/send.svg" alt=""
+                (click)="sendMessage(messageInput)">
+        </div>
+    </div>
+</section>

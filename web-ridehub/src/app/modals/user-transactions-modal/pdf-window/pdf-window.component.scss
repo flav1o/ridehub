@@ -1,0 +1,80 @@
+@import '../../../../styles.scss';
+
+#htmlData{
+  min-height: 29.7cm;
+  width: 21cm;
+  position: relative;
+  padding: 2vh 1vw;
+  z-index: -1;
+  bottom: -100vh;
+  
+  > table {
+    margin-top: 1vh;
+    width: 100%;
+    text-align: center;
+  }
+
+  th{
+    background-color: $primary-color;
+    color: whitesmoke;
+    font-family: $main-font;
+    font-weight: 300;
+    padding: 1vh;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  td {
+    padding: 0.3vw; 
+    font-family: $main-font;
+  }
+
+  .user_header_data {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    padding: 0vh 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    > img {
+      width: 40px;
+      height: 40px;
+      margin-right: 1vw;
+    }
+  }
+
+}
+.print_date {
+  color: $text-color;
+  text-align: end;
+  width: 100%;
+}
+
+.user_header_data__details {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  
+  &__name {
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  &__phone {
+    font-size: .9rem;
+    color: $text-color;
+  }
+}
+
+.logo_ridehub {
+  width: 10cm;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-50deg);
+  opacity: .4;
+}

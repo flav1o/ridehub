@@ -1,0 +1,131 @@
+@import "../../../styles.scss";
+
+.vehicle_manager {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: $main-font;
+  align-items: center;
+  background-color: $background-color;
+  position: fixed;
+  bottom: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 0vh 0vw;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+  z-index: 998;
+}
+
+.close_button {
+  position: absolute;
+  top: 2vh;
+  right: 3vw;
+  cursor: pointer;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.add_vehicle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove_vehicle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4vh 0 3% 0;
+}
+
+.inputDiv {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: $main-font;
+  color: $secondary-color;
+  padding: 5px;
+  min-height: 5vh;
+  font-size: 0.8rem;
+
+  input {
+    width: 100%;
+    margin-top: 3%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 2vh;
+
+    &:invalid {
+      border: 1px solid $primary-color;
+    }
+  }
+
+  select {
+    width: 48vw;
+    padding: 12px;
+    border: 1px solid $primary-color;
+    font-size: $main-font;
+    margin-bottom: 1vh;
+  }
+}
+
+input[type="submit"].create {
+  color: #fff;
+  background-color: $primary-color;
+  cursor: pointer;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 15vw;
+  margin-top: 1%;
+  margin-bottom: 3%;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+
+  &:active {
+    transform: translateY(3px);
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .vehicle_manager {
+    width: 26vw;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .close_button {
+    right: 1vw;
+  }
+
+  .add_vehicle {
+    width: 100%;
+  }
+
+  .inputDiv {
+    padding: 0vh 2vw;
+
+    select {
+      width: 100%;
+    }
+  }
+  input[type="submit"].create {
+    width: 44%;
+    padding: 12px 4vw;
+  }
+
+  .remove_vehicle {
+    width: 100%;
+  }
+}

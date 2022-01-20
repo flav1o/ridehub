@@ -1,0 +1,113 @@
+@import "../../../styles.scss";
+
+@media screen and (orientation: portrait) {
+  .navbar{
+    display: none;
+  }
+
+  .portrait{
+    width: 100vw;
+    height: 100vh;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+
+      img{
+        width: 85%;
+      }
+
+      p{
+        font-size: 1.5rem;
+      }
+  }
+}
+
+@media screen and (orientation:landscape) {
+  nav.navbar {
+      height: 5vh;
+      min-height: 10vh;
+      width: 100vw;
+      padding: 0vw 2vw;
+      position: fixed;
+      bottom: 0;
+      background-color: rgb(221, 221, 221);
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+
+      span {
+          color: $title-color;
+          font-family: $main-font;
+          font-weight: bold;
+          font-size: 1.1rem;
+      }
+
+      div.group-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img{
+              width: 15px;
+              margin-right: 1vw;
+          }
+      }
+
+      .ride_toggler {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:active {
+          transform: translateY(1px);
+        }
+
+
+        &__action_text {
+          margin-left: 1vw;
+          color: $primary-color;
+        }
+      }
+  }
+
+  #inridemap {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      z-index: 998;
+
+      #map {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+      }
+  }
+
+  #directions {
+    color: $alert-color;
+  }
+}
+
+
+.end-ride {
+  color: $alert-color;
+}
+
+
+@media (min-width: 1199.98px)  {
+  .portrait{
+    display: none;
+  }
+
+  nav.navbar {
+    height: 5vh;
+    min-height: 5vh;
+  }
+}

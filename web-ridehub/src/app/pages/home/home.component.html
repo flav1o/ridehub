@@ -1,0 +1,9 @@
+<app-nav-bar></app-nav-bar>
+<app-create-ride-modal *ngIf="componentToggler.rideModal"></app-create-ride-modal>
+
+<section id="inridemap" (click)="toggleCreateRide($event, false)">
+  <div id='map' click-stop-propagation #map></div>
+  <div class="inridemap__create_ride" *ngIf="!componentToggler.rideModal" (click)="toggleCreateRide($event, true)">
+    <img class="inridemap__create_ride__plus" src="../../../assets/icons/plus.svg">
+  </div>
+</section>

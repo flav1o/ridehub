@@ -1,0 +1,28 @@
+<app-alert-modal [status]='alertStatus' *ngIf="componentToggler.alertModal"></app-alert-modal>
+
+<section class="vehicle_manager slide-in-bottom" #vehicle_wrapper>
+    
+    <img src="../../../assets/icons/close_small.svg" alt="" class="close_button" (click)="closeButton()">
+    
+    <form class="add_vehicle" action="" autocomplete="off" #addVehicle="ngForm" (ngSubmit)="createCar(addVehicle)">
+        <div class="inputDiv">
+            Brand
+            <input type="text" name="marca" placeholder="ex: Mazda" required ngModel>
+        </div>
+        <div class="inputDiv">
+            License Plate
+            <input type="text" name="matricula" placeholder="XX-XX-XX" required ngModel>
+        </div>
+        <input type="submit" class="create" value="ADD">
+    </form>
+
+    <form class="remove_vehicle" action="" autocomplete="off" #removeVehicle="ngForm" (ngSubmit)="deleteVehicle(removeVehicle)">
+        <div class="inputDiv">
+            Selected Car
+            <select name="id_viatura" ngModel required>
+              <option value={{vehicle.id_viatura}} *ngFor="let vehicle of vehicles">{{vehicle.marca + ' -> ' + vehicle.matricula}}</option>
+            </select>
+        </div>
+        <input type="submit" class="create" value="DELETE">
+    </form>
+</section>

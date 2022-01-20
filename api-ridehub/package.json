@@ -1,0 +1,46 @@
+{
+  "name": "ridehub-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "lint": "eslint src/** test/** --fix",
+    "test": "jest --watchAll",
+    "test-coverage": "jest --watchAll --coverage --runInBand --forceExit",
+    "migrate": "knex migrate:latest --env test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.24.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "jwt-simple": "0.5.5",
+    "knex": "0.15.2",
+    "nodemon": "^2.0.15",
+    "passport": "0.4.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "8.7.1"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "jwt-simple": "0.5.5",
+    "knex": "0.15.2",
+    "nodemon": "^2.0.15",
+    "passport": "0.4.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "8.7.1"
+  }
+}

@@ -1,0 +1,61 @@
+<app-nav-bar></app-nav-bar>
+
+<section id="current-rides" (scroll)="onScroll($event)">
+
+    <nav class="nav-goback">
+        <img src="../../../assets/icons/arrow_back.svg" [routerLink]="['/home']" alt="">
+        <span>Current Listed</span>
+    </nav>
+
+    <div id="input-div">
+        <label class="label-input">
+            <input class="input-search" type="text" placeholder="Search" (input)="searchByWords(searchInput.value)"
+                #searchInput>
+        </label>
+    </div>
+
+    <div class="dropdown">
+        <img src="../../../assets/icons/settings.svg" class="dropdown-toggler" alt="">
+        <div class="dropdown-content">
+            <span (click)="orderBy('nome')">Name</span>
+            <span (click)="orderBy('origem')">Starting Location</span>
+            <span (click)="orderBy('destino')">Destination</span>
+        </div>
+    </div>
+
+    <div class="cards_wrapper">
+        <div class="ride-card" *ngFor="let item of currentList; let i as index" (click)="openRideCard(i)">
+            <div class="ride-time-info">
+                <div class="date-ride">
+                    <img src="../../../assets/icons/calendar.svg" alt="">
+                    <p>{{item.data | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="time-ride">
+                    <img src="../../../assets/icons/clock.svg" alt="">
+                    <p>{{item.data | date: 'shortTime'}}</p>
+                </div>
+            </div>
+
+            <div class="ride-locations">
+                <p><abbr title="{{item.origem}}">{{ item.origem | slice:0:30}}...</abbr></p>
+                <img src="../../../assets/icons/from-to.svg" alt="">
+                <p><abbr title="{{item.destino}}">{{ item.destino | slice:0:30}}...</abbr></p>
+            </div>
+
+            <div class="ride-driver">
+                <div class="driver-avatar">
+                    <img src='https://avatars.dicebear.com/api/bottts/{{ item.id_utilizador }}.svg' alt="">
+                </div>
+                <div class="driver-info">
+                    <span>{{ item.nome }}</span>
+                    <div class="driver-car">
+                        <img src="../../../assets/icons/car.svg" alt="">
+                        <p>{{ item.matricula }}</p>
+                        <img src="../../../assets/icons/dot.svg" alt="">
+                        <p>{{ item.custo | currency:"EUR":"symbol" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

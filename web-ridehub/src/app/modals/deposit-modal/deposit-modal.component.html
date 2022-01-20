@@ -1,0 +1,37 @@
+<section class="balance_manager slide-in-bottom" #deposit_wrapper>
+    
+    <img src="../../../assets/icons/close_small.svg" alt="" class="close_button" (click)="closeButton()">
+    
+    <form class="balance_wrapper" #addBalance="ngForm" (ngSubmit)="balanceManagement(addBalance)">
+        <div class="input_div">
+            Type of Card
+            <select name="card" ngModel>
+              <option value="Visa">Visa</option>
+              <option value="Mastercard">Mastercard</option>
+              <option value="American Express">American Express</option>
+            </select>
+        </div>
+
+        <div class="input_div sided-inputs">
+            <span>
+                Expiration Date
+                <input type="text" min="1" name="expdate" placeholder="XX/XX" required maxlength="5" ngModel>
+            </span>
+            <span>
+                CVV
+                <input type="text" min="0" name="cvv" required ngModel maxlength="3" placeholder="123">
+            </span>
+        </div>
+
+        <div class="input_div">
+            Carholder Name
+            <input type="text" placeholder={{user.nome}} name="nome" ngModel disabled>
+        </div>
+        <div class="input_div">
+            Deposit Ammount
+            <input type="number" min="0" name="montante" required ngModel>
+        </div>
+
+        <input type="submit" class="deposit" value="DEPOSIT">
+    </form>
+</section>

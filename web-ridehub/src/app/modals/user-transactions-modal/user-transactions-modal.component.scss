@@ -1,0 +1,129 @@
+@import "../../../styles.scss";
+
+#user_transactions {
+  width: 100%;
+  min-height: 30vh;
+  position: absolute;
+  padding-bottom: 1vh;
+  background-color: $background-color;
+  bottom: 0;
+  z-index: 998;
+  overflow: hidden;
+  border-radius: 20px;
+
+  > img {
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    cursor: pointer;
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  &__nav {
+    margin: 4vh 0 0vh 2vh;
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: $secondary-color;
+  }
+}
+
+hr {
+  width: 96%;
+  border: 1px solid $text-color;
+  margin-top: 0.5vh;
+  margin-bottom: 2vh;
+}
+
+.user_transactions__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 4vw;
+  overflow-y: auto;
+  min-height: 40vh;
+  max-height: 80vh;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2vh 0vw;
+    width: 100%;
+
+    > span {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: $title-color;
+    }
+
+    > img {
+      width: 35px;
+      margin-right: 4vw;
+    }
+  }
+}
+
+.transaction_information {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  > span {
+    color: $text-color;
+  }
+}
+
+.download-button {
+  cursor: pointer;
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+@media (min-width: 1199.98px) {
+  #user_transactions {
+    width: 40vw;
+    transform: translateX(-50%);
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .user_transactions__wrapper {
+    padding: 0vh 2vw;
+  }
+
+  .transaction_information__date {
+    font-size: 0.9rem;
+    color: red;
+  }
+
+  .user_transactions__wrapper__item {
+    > img {
+      margin-right: 1vw;
+    }
+
+    > span {
+      font-size: 1rem;
+    }
+  }
+
+  .transaction_information__date,
+  .transaction_information__id {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,76 @@
+<app-profile-settings-modal [userInformation]="userInformation" [fieldToChange]="fieldToChange"  *ngIf="componentToggler.settingsModal"></app-profile-settings-modal>
+<app-deactivate-modal *ngIf="componentToggler.deactivateModal"></app-deactivate-modal>
+
+<section class="profile-settings slide-in-left">
+    <div class="background"></div>
+
+    <nav class="navbar">
+        <img src="../../../assets/icons/arrow_back.svg" alt="" [routerLink]="'/settings'">
+        <h3>Profile Settings</h3>
+        <br>
+    </nav>
+
+    <main class="container_wrapper">
+        <div class="container_wrapper__header">
+            <img src="https://avatars.dicebear.com/api/bottts/{{this.userData.user.id_utilizador}}.svg" alt="">
+            <span>{{this.userInformation.nome}}</span>
+        </div>
+
+        <div class="container_wrapper__acc_settings">
+            <h3>Account Settings</h3>
+            <div class="acc_settings_wrapper">
+                <div class="acc_settings_wrapper__item">
+                    <span class="acc_settings_wrapper__item__description">Name</span>
+                    <span class="acc_settings_wrapper__item__action" (click)="fieldValue('nome')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                    <span class="acc_settings_wrapper__item__description">Gender</span>
+                    <span class="acc_settings_wrapper__item__action" (click)="fieldValue('genero')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                    <span class="acc_settings_wrapper__item__description">Description</span>
+                    <span class="acc_settings_wrapper__item__action" (click)="fieldValue('descricao')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                  <span class="acc_settings_wrapper__item__description">Instagram</span>
+                  <span class="acc_settings_wrapper__item__action" (click)="fieldValue('instagram')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                  <span class="acc_settings_wrapper__item__description">Twitter</span>
+                  <span class="acc_settings_wrapper__item__action" (click)="fieldValue('twitter')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                  <span class="acc_settings_wrapper__item__description">Snapchat</span>
+                  <span class="acc_settings_wrapper__item__action" (click)="fieldValue('snapchat')">Edit</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_wrapper__acc_settings">
+            <h3>Account Security</h3>
+            <div class="acc_settings_wrapper">
+                <div class="acc_settings_wrapper__item">
+                    <span class="acc_settings_wrapper__item__description">Email</span>
+                    <span class="acc_settings_wrapper__item__action" (click)="fieldValue('email')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                    <span class="acc_settings_wrapper__item__description">Phone Number</span>
+                    <span class="acc_settings_wrapper__item__action" (click)="fieldValue('n_telemovel')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                    <span class="acc_settings_wrapper__item__description">Password</span>
+                    <span class="acc_settings_wrapper__item__action" (click)="fieldValue('password')">Edit</span>
+                </div>
+                <div class="acc_settings_wrapper__item">
+                    <span class="acc_settings_wrapper__item__description">Delete Account</span>
+                    <span class="acc_settings_wrapper__item__action alert" (click)="deactivateAccount()">View</span>
+                </div>
+            </div>
+        </div>
+
+        <img src="../../../../assets/logos/full_logo.svg" alt="">
+    </main>
+
+</section>
+
+

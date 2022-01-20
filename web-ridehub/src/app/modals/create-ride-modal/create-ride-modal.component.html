@@ -1,0 +1,62 @@
+<app-alert-modal [status]='alertStatus' *ngIf="componentToggler.alertModal"></app-alert-modal>
+<form class="createride slide-in-bottom" #divToAnim #createride="ngForm" (ngSubmit)="confirmRide(createride)" autocomplete="off">
+  <div class="inputDiv">
+    Starting Location
+    <input (input)="search($event, 0)" [value]="selectedStartingAddress" name="origem" required ngModel>
+    <div>
+      <div class="suggestionsContainer" lines="none" *ngIf="addressesStarting.length > 0">
+        <div class="suggestion" *ngFor="let addressStart of addressesStarting" (click)="onSelect(addressStart, 0)">
+          <img src="../../../assets/icons/marker.svg" alt="">
+          <p>
+            {{ addressStart }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inputDiv">
+    Drop-off Location
+    <input (input)="search($event, 1)" [value]="selectedEndingAddress" name="destino" required ngModel>
+    <div>
+      <div class="suggestionsContainer" lines="none" *ngIf="addressesEnding.length > 0">
+        <div class="suggestion" *ngFor="let addressEnd of addressesEnding" (click)="onSelect(addressEnd, 1)">
+          <img src="../../../assets/icons/marker.svg" alt="">
+          <p>
+            {{ addressEnd }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inputDiv">
+    Ride Date
+    <input type="datetime-local" max="1989-10-29" name="data" required ngModel>
+  </div>
+
+  <div class="inputDiv">
+    Description
+    <input type="text" name="descricao" required ngModel>
+  </div>
+
+  <div class="inputDiv sided-inputs">
+    <span>
+      Passengers
+      <input type="number" min="1" name="lugares_disponiveis" required minlength="1" ngModel>
+    </span>
+    <span>
+      Expenditure €
+      <input type="number" min="0" name="custo" required ngModel>
+    </span>
+  </div>
+
+  <div class="inputDiv">
+    Selected Car
+    <select name="id_viatura" ngModel>
+      <option value={{item.id_viatura}} *ngFor="let item of vehicles">{{item.marca + ' -> ' + item.matricula}}</option>
+    </select>
+  </div>
+
+  <input type="submit" class="create" value="Enviar">
+</form>

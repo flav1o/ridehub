@@ -1,0 +1,352 @@
+[
+  {
+    "title": "auths",
+    "requests": [
+      {
+        "route": "auth/signin",
+        "type": "POST",
+        "description": "Login do utilizador",
+        "request": "{\"token\": \"x.y.z\" }"
+      },
+      {
+        "route": "auth/signup",
+        "type": "POST",
+        "description": "Criação do utilizador através do método POST do users",
+        "request": "Retorna o código 201"
+      }
+    ]
+  },
+  {
+    "title": "users",
+    "requests": [
+      {
+        "route": "users/",
+        "type": "GET",
+        "description": "Lista todos os utilizadores",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "users/:id",
+        "type": "GET",
+        "description": "Lista apenas um utilizador por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "users/money/:id",
+        "type": "GET",
+        "description": "Lista o saldo de um utilizador por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "users/driver/:id",
+        "type": "GET",
+        "description": "Lista as viagens onde o utilizador é o condutor por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "users/active/:id",
+        "type": "GET",
+        "description": "Lista as viagens em espera onde o utilizador por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "users/activeUsers/newcomers",
+        "type": "GET",
+        "description": "Lista os utilizadores novos",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "users/",
+        "type": "POST",
+        "description": "Criação do utilizador",
+        "request": "Retorna um código 201"
+      },
+      {
+        "route": "users/:id",
+        "type": "DELETE",
+        "description": "Apaga apenas um utilizador por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "users/:id",
+        "type": "PATCH",
+        "description": "Atualiza apenas um utilizador por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "users/balance/:id",
+        "type": "PATCH",
+        "description": "Atualiza o saldo de um utilizador por ID",
+        "request": "Retorna um código 200"
+      }
+    ]
+  },
+  {
+    "title": "evaluation",
+    "requests": [
+      {
+        "route": "evaluation/",
+        "type": "GET",
+        "description": "Lista todas as avaliações",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "evaluation/:id",
+        "type": "GET",
+        "description": "Lista apenas uma avaliação por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "evaluation/author/:rideID/:userID",
+        "type": "GET",
+        "description": "Lista avaliações por Id de utilizador",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "evaluation/",
+        "type": "POST",
+        "description": "Criação da avaliação",
+        "request": "Retorna um código 201"
+      }
+    ]
+  },
+  {
+    "title": "reports",
+    "requests": [
+      {
+        "route": "reports/",
+        "type": "GET",
+        "description": "Lista todas as denúncias",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "reports/:id",
+        "type": "GET",
+        "description": "Lista apenas uma denúncia por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "reports/author/:id",
+        "type": "GET",
+        "description": "Lista todas as denúncias de um utilizador",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "reports/",
+        "type": "POST",
+        "description": "Criação da denúncia",
+        "request": "Retorna um código 201"
+      }
+    ]
+  },
+  {
+    "title": "rides",
+    "requests": [
+      {
+        "route": "rides/",
+        "type": "GET",
+        "description": "Lista todas as viagens",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "rides/:id",
+        "type": "GET",
+        "description": "Lista apenas uma viagem por ID",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "rides/occupants/:id",
+        "type": "GET",
+        "description": "Lista os ocupantes da viagem",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "rides/ammount/:id",
+        "type": "GET",
+        "description": "Lista a qnt de ocupantes da viagem",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "rides/author/:id",
+        "type": "GET",
+        "description": "Lista as viagens através do Id de autor",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "rides/",
+        "type": "POST",
+        "description": "Criação da viagem",
+        "request": "Retorna um código 201"
+      },
+      {
+        "route": "rides/:id",
+        "type": "DELETE",
+        "description": "Eliminação de uma viagem por Id",
+        "request": "Retorna um código 204"
+      },
+      {
+        "route": "rides/:id",
+        "type": "PUT",
+        "description": "Atualiza um campo da viagem",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "rides/state/:id",
+        "type": "PUT",
+        "description": "Altera o estado da viagem",
+        "request": "Retorna um código 200"
+      }
+    ]
+  },
+  {
+    "title": "occupants",
+    "requests": [
+      {
+        "route": "occupants/",
+        "type": "GET",
+        "description": "Lista todos os ocupantes da viagem",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "occupants/:id",
+        "type": "GET",
+        "description": "Lista apenas entrada de um ocupante",
+        "request": "Retorna um código 200"
+      },
+      {
+        "route": "occupants/",
+        "type": "POST",
+        "description": "Criação de um ocupante na viagem",
+        "request": "Retorna um código 201"
+      },
+      {
+        "route": "occupants/:rideID/:userID",
+        "type": "DELETE",
+        "description": "Apaga um ocupante na viagem",
+        "request": "Retorna um código 201"
+      },
+      {
+        "route": "occupants/ride/:id",
+        "type": "GET",
+        "description": "Procurar ocupantes por id de viagem",
+        "request": "Retorna um código 201"
+      }
+    ]
+  },
+  {
+    "title": "transactions",
+    "requests": [
+      {
+        "route": "transactions/:id",
+        "type": "GET",
+        "description": "Lista uma transação por Id de transação",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "transactions/author/:id",
+        "type": "GET",
+        "description": "Lista as transações por id de autor",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "transactions/",
+        "type": "POST",
+        "description": "Cria uma transação",
+        "request": "Retorna o código 201"
+      },
+      {
+        "route": "transactions/:id",
+        "type": "PUT",
+        "description": "Atualiza uma transação",
+        "request": "Retorna o código 200"
+      }
+    ]
+  },
+  {
+    "title": "vehicles",
+    "requests": [
+      {
+        "route": "vehicles/",
+        "type": "GET",
+        "description": "Lista todos os veiculos",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "vehicles/:id",
+        "type": "GET",
+        "description": "Lista um veiculo por Id de veiculo",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "vehicles/owner/:id",
+        "type": "GET",
+        "description": "Lista os veiculos por Id de utilizador",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "vehicles/",
+        "type": "POST",
+        "description": "Regista um veículo",
+        "request": "Retorna o código 201"
+      },
+      {
+        "route": "vehicles/:id",
+        "type": "DELETE",
+        "description": "Apaga um veículo por Id",
+        "request": "Retorna o código 204"
+      },
+      {
+        "route": "vehicles/:id",
+        "type": "PUT",
+        "description": "Altera os dados de um veiculo por id",
+        "request": "Retorna o código 200"
+      }
+    ]
+  },
+  {
+    "title": "chats",
+    "requests": [
+      {
+        "route": "chat/:rideID/:chatID",
+        "type": "GET",
+        "description": "Retorna o id do chat",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "chat/:id",
+        "type": "GET",
+        "description": "Retorna o id de um chat",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "chat/",
+        "type": "POST",
+        "description": "Regista mensagens num chat",
+        "request": "Retorna o código 201"
+      }
+    ]
+  },
+  {
+    "title": "chats",
+    "requests": [
+      {
+        "route": "chat/:rideID/:chatID",
+        "type": "GET",
+        "description": "Retorna o id do chat",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "chat/:id",
+        "type": "GET",
+        "description": "Retorna o id de um chat",
+        "request": "Retorna o código 200"
+      },
+      {
+        "route": "chat/",
+        "type": "POST",
+        "description": "Regista mensagens num chat",
+        "request": "Retorna o código 201"
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+<section class="evaluate-ride slide-in-bottom" #evaluate_wrapper>
+  <img src="../../../assets/icons/close_small.svg" alt="" class="close_button" (click)="closeModal()">
+  <form class="add_review" action="" autocomplete="off" #addEvaluation="ngForm" (ngSubmit)="createEvaluation(addEvaluation)">
+    How would you evaluate this ride?
+
+    <div class="star_rating">
+      <label><input class="radio" type="radio" name="nota" value="5" required ngModel><span>Excellent</span></label>
+      <label><input class="radio" type="radio" name="nota" value="4" required ngModel><span>Good</span></label>
+      <label><input class="radio" type="radio" name="nota" value="3" required checked="checked" ngModel><span>Average</span></label>
+      <label><input class="radio" type="radio" name="nota" value="2" required ngModel><span>Bad</span></label>
+      <label><input class="radio" type="radio" name="nota" value="1" required ngModel><span>Improper</span></label>
+    </div>
+
+    <textarea autosize class="evaluation_field" name="descricao" maxlength="120" placeholder="Ride Evaluation" required ngModel></textarea>
+
+    <input type="submit" class="create" value="CREATE">
+  </form>
+</section>

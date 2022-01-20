@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+
+<section class="search_users">
+    <nav class="search_users__title">
+        <span>Search Users</span>
+    </nav>
+
+    <div id="search_div">
+        <label class="label-input">
+            <input class="input-search" type="text" placeholder="Search" #searchInput (input)="searchUser(searchInput.value)">
+        </label>
+    </div>
+
+    <div class="users_suggestion">
+        <div class="users_suggestion__item" *ngFor="let item of searchedUsers" (click)="openProfile(item.id_utilizador)">
+            <img src='https://avatars.dicebear.com/api/bottts/{{item.id_utilizador}}.svg' alt="">
+            <div class="users_suggestion__item__about">
+                <span class="users_suggestion__item__about__name">{{item.nome}}</span>
+                <span class="users_suggestion__item__about__desc"> {{item.descricao}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="newcomers_wrapper">
+        <div class="newcomers_wrapper__item" *ngFor="let item of newcomers">
+            <img src='https://avatars.dicebear.com/api/bottts/{{item.id_utilizador}}.svg' alt="">
+            <h3>{{item.nome}}</h3>
+            <span><abbr title="{{item.descricao}}">{{ item.descricao | slice:0:20}}</abbr>...</span>
+            <button (click)="openProfile(item.id_utilizador)">View</button>
+        </div>
+    </div>
+</section>

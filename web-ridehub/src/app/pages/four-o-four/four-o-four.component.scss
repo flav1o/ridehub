@@ -1,0 +1,47 @@
+@import "../../../styles.scss";
+
+#four-o-four{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  > span{
+    font-size: 6rem;
+    color: $secondary-color;
+  }
+}
+
+a{
+  color: #35627e;
+}
+
+.background{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url('../../../assets/images/404.bmp') no-repeat center;
+  background-size: cover;
+  z-index: -1;
+
+  .opacity{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(250, 235, 215, 0.747);
+  }
+}
+
+@media (min-width: 758.98px) {
+  #four-o-four{
+    > span{
+      font-size: 7rem;
+    }
+  }
+
+  a{
+    font-size: 2rem;
+  }
+}

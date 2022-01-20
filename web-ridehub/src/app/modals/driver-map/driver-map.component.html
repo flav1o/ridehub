@@ -1,0 +1,20 @@
+<section class="portrait">
+  <img src="../../../assets/images/rotatedevice.gif" alt="">
+  <p>Please rotate your device</p>
+</section>
+<nav class="navbar">
+  <img src="../../../assets/icons/arrow_back.svg" alt="" (click)="goBack()">
+  <div class="group-wrapper">
+      <img src="../../../assets/inridemap/user.svg" alt="">
+      <span>{{ rideNumberOccupants.qnt }}/{{ rideNumberOccupants.lugares_disponiveis }}</span>
+  </div>
+
+  <div class="ride_toggler">
+    <img src="../../../assets/icons/car.svg" alt="">
+    <span class="ride_toggler__action_text" (click)="toggleRide()" #stateButton>Start</span>
+  </div>
+</nav>
+
+<section id="inridemap">
+  <div id='map' #map></div>
+</section>

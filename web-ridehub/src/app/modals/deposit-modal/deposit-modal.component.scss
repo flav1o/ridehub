@@ -1,0 +1,150 @@
+@import "../../../styles.scss";
+
+.balance_manager {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $main-font;
+    align-items: center;
+    background-color: $background-color;
+    position: fixed;
+    bottom: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 0vh 0vw;
+    padding-top: 5vh;
+    padding-bottom: 3vh;
+    z-index: 998;
+}
+
+.close_button {
+    position: absolute;
+    top: 2vh;
+    right: 3vw;
+    cursor: pointer;
+
+    &:active {
+        transform: translateY(1px);
+    }
+}
+
+.input_div {
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: $main-font;
+    color: $secondary-color;
+    min-height: 5vh;
+    font-size: 0.8rem;
+
+    input {
+        width: 100%;
+        margin-top: 3%;
+        padding: 12px;
+        font-size: 1rem;
+        border: none;
+        margin-bottom: 2vh;
+
+        &:invalid {
+            border: 1px solid $primary-color;
+        }
+    }
+
+    select {
+        width: 80vw;
+        padding: 12px;
+        border: 1px solid $primary-color;
+        font-size: $main-font;
+        margin: 1vh 0 2.5vh 0;
+    }
+}
+
+.balance_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__card_type {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3vh;
+
+        > input {
+            margin: 0vh 2vw;
+        }
+    }
+}
+
+div.sided-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: unset;
+
+    span {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        input[type="text"] {
+            width: 80%;
+        }
+    }
+
+    span:last-child input {
+        width: 100%;
+    }
+}
+
+.deposit {
+    width: 30vw;
+    color: #fff;
+    background-color: $primary-color;
+    cursor: pointer;
+    border: none;
+    border-radius: 9px;
+    padding: 15px 0px;
+    margin-top: 3%;
+    font-size: 0.8rem;
+    font-family: inherit;
+    font-weight: 600;
+    text-align: center;
+
+    &:active {
+        transform: translateY(3px);
+    }
+}
+
+@media (min-width: 1199.98px) {
+    .balance_manager {
+        width: 25vw;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    .input_div {
+        width: 90%;
+
+        select {
+            width: 100%;
+        }
+    }
+
+    .deposit {
+        width: 33%;
+        padding: 12px 0px;
+    }
+
+    .close_button {
+        right: 1vw;
+    }
+}

@@ -1,0 +1,281 @@
+@import "../../../styles.scss";
+
+#current-rides {
+  width: 100vw;
+  min-height: 100vh;
+  padding-bottom: 9vh;
+  overflow-x: hidden;
+}
+
+#current-rides .nav-goback {
+  width: 100vw;
+  height: 5vh;
+  padding-top: 2vh;
+  margin-bottom: 5vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    padding-top: 2vh;
+    position: absolute;
+    top: 50%;
+    left: 4vw;
+  }
+  span {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+}
+
+#input-div {
+  width: 100%;
+  max-height: 15%;
+  display: grid;
+  place-items: center;
+
+  .label-input {
+    position: relative;
+  }
+
+  .label-input:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 0;
+    width: 20px;
+    background-image: url("../../../assets/icons/search.svg");
+    background-repeat: no-repeat;
+  }
+
+  input.input-search {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 9px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.dropdown-toggler {
+  color: white;
+  cursor: pointer;
+  right: 5vw;
+  position: absolute;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  min-height: 3vh;
+  height: auto;
+  padding-top: 2vh;
+  margin-left: 90%;
+
+  &:hover .dropdown-content {
+    display: block;
+  }
+
+  &:active .dropdown-content {
+    display: block;
+  }
+
+  span:hover + .dropdown-content {
+    display: block;
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+  top: 3vh;
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.8rem;
+
+  &:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+}
+
+.cards_wrapper {
+  width: 100%;
+  padding: 2vh 0vw;
+  flex-direction: column;
+  display: flex;
+}
+
+.ride-card {
+  width: 80%;
+  min-height: 15vh;
+  margin: 7% auto 0px auto;
+  background-color: #f9f9f9;
+  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.14);
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2vh 0vw;
+
+  .ride-time-info {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    p {
+      color: $title-color;
+      font-size: 0.875rem;
+    }
+
+    .date-ride {
+      width: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding-bottom: 2vh;
+
+      img {
+        padding: 0px 6px 0px 15px;
+      }
+    }
+
+    .time-ride {
+      width: 35%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      margin-bottom: 1vh;
+
+      img {
+        padding: 0px 5px 0px 0px;
+      }
+    }
+  }
+
+  .ride-locations {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 2vh;
+    justify-content: center;
+
+    p {
+      color: $text-color;
+      font-size: 0.875rem;
+      padding: 0px 15px;
+    }
+  }
+
+  .ride-driver {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .driver-avatar {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        border-radius: 50%;
+        border: 2px solid $primary-color;
+        height: 13vw;
+        width: 13vw;
+      }
+    }
+
+    .driver-info {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      color: $title-color;
+
+      span {
+        font-size: 1rem;
+      }
+    }
+
+    .driver-car {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 3%;
+
+      p {
+        margin: 0 3%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1199.98px) {
+  #current-rides {
+    width: 100%;
+  }
+
+  .ride-card {
+    width: 20%;
+    margin: 2% auto 0px auto;
+  }
+
+  .ride-driver {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .driver-avatar {
+      width: 9%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .ride-driver div.driver-avatar > img {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: contain !important;
+  }
+
+  .input-search {
+    width: 20vw !important;
+    padding-right: 1vw;
+  }
+
+  .ride-card {
+    margin: 7% 4vw 0px 4vw;
+  }
+
+  .cards_wrapper {
+    width: 100%;
+    padding: 2vh 0vw;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

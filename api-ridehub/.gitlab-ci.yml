@@ -1,0 +1,42 @@
+stages:
+  - build
+  - deploy-staging
+  - deploy-production
+
+build-nodejs-app:
+  stage: build
+  image: docker:latest
+  tags:
+    - dwm-staging
+  services:
+    - docker:dind
+  before_script:
+    - IMAGE_VERSION=`grep "\"version\":" package.json | awk -F \" '{print $4}'`
+    - echo $IMAGE_VERSION
+  script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+    - docker build -t $CI_REGISTRY_IMAGE .
+    - docker push $CI_REGISTRY_IMAGE
+
+deploy-staging:
+  image: $CI_REGISTRY_IMAGE:latest
+  stage: deploy-staging
+  tags:
+    - dwm-staging
+  script:
+    - echo $CI_REGISTRY_PASSWORD
+    - echo $CI_REGISTRY_USER
+    - echo $CI_REGISTRY
+    - echo $CI_REGISTRY_IMAGE
+    - docker-compose up --build --detach
+    - docker image prune -f
+
+deploy-production:
+  image: $CI_REGISTRY_IMAGE:latest
+  stage: deploy-staging
+  when: manual
+  tags:
+    - dwm-production
+  script:
+    - docker-compose up --build --detach
+    - docker image prune -f

@@ -1,0 +1,150 @@
+@import "../../../styles.scss";
+
+.createride {
+  padding: 2vh 0vw;
+  width: 100vw;
+  min-height: 50vh;
+  background-color: $background-color;
+  position: absolute;
+  bottom: 0;
+  border-radius: 25px 25px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: $main-font;
+  align-items: center;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.inputDiv {
+  width: 70%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: $main-font;
+  color: $secondary-color;
+  padding: 5px;
+  min-height: 11vh;
+  font-size: 0.8rem;
+
+  input {
+    margin-top: 3%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+
+    &:invalid {
+      border: 1px solid $primary-color;
+    }
+  }
+
+  select{
+    padding: 12px;
+    border: 1px solid $primary-color;
+    font-size: $main-font;
+  }
+
+  .suggestionsContainer {
+    min-height: 30vh;
+    max-height: 30vh;
+    position: absolute;
+    z-index: 999;
+    overflow-y: scroll;
+  }
+
+  .suggestion {
+    background-color: #fff;
+    color: #000;
+    padding-right: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+
+    img {
+      min-width: 17px;
+      max-width: 17px;
+      margin-right: 3vw;
+    }
+
+    &:nth-child(even) {
+      background-color: rgb(248, 248, 248);
+    }
+
+    p {
+      font-size: 0.9rem;
+      padding: 1vh 0vw;
+      cursor: pointer;
+    }
+  }
+}
+
+.create {
+  width: 30vw;
+  color: #fff;
+  background-color: $primary-color;
+  cursor: pointer;
+  border: none;
+  border-radius: 9px;
+  padding: 10px 0px;
+  margin-top: 3%;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+
+  &:active {
+    transform: translateY(3px);
+  }
+}
+
+div.sided-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: unset;
+  padding-bottom: 2vh;
+
+  span {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    input[type="number"] {
+      width: 96%;
+    }
+  }
+
+  span:last-child input {
+    width: 100%;
+  }
+}
+
+.alert {
+  outline: red solid 1px;
+}
+
+
+
+@media (min-width: 1199.98px) {
+  .createride {
+    width: 30vw;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .inputDiv {
+    width: 50%;
+  }
+
+  .create {
+    width: 10vw;
+  }
+}

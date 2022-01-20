@@ -1,0 +1,97 @@
+@import '../../../styles.scss';
+.navbar {
+    width: 100%;
+    height: 7vh;
+    background-color: $secondary-color; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vh 1vw;
+
+    &__logo {
+        color: white;
+        font-weight: 700;      
+        letter-spacing: 2px;
+        font-size: 1.2rem;  
+    }
+
+    &__gitlab {
+        width: 30px;
+        filter: grayscale(.6);
+        cursor: pointer;
+    }
+}
+
+.apresentation {
+    width: 100%;
+    min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4vh 5vw;
+    
+    &__title {
+        color: $title-color;        
+        font-size: 1.3rem;
+        margin-bottom: 1vh;
+    }
+    
+    &__description {
+        font-size: 1rem;
+        cursor: text;
+        width: 60%;
+    }
+}
+
+.documentation {
+    width: 100%;
+    min-height: 10vh;
+    padding: 4vh 5vw;
+}
+
+.documentation__item {
+    margin: 0vh 0vw 5vh 0vw;
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    &__divider {
+        height: 2px;
+        width: 100%;
+        background-color: $title-color;
+        margin-bottom: 2vh;
+    }
+}
+
+.documentation__request {
+    min-height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__type {
+        color: $alert-color;
+        border-radius: 4px;
+        padding: 3px 5px;
+        background-color: #cccccc69;
+        font-weight: bold;
+        font-size: .9rem;
+    }
+    &__url {
+        color: $title-color;
+        font-size: 1rem;
+        margin-left: 1vw;
+        width: 10vw;
+    }
+}
+
+.documentation__request_options{
+    margin-left: auto;
+
+    > button {
+        @include buttons;
+        color: $title-color;
+    }
+}

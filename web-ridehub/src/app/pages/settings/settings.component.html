@@ -1,0 +1,56 @@
+
+<router-outlet></router-outlet>
+
+<app-add-vehicle *ngIf="componentToggler.addVehicle"></app-add-vehicle>
+<app-deposit-modal *ngIf="componentToggler.addBalance"></app-deposit-modal>
+<app-user-transactions-modal *ngIf="componentToggler.transactionsModal"></app-user-transactions-modal>
+
+<section class="settings slide-in-left" *ngIf="route.children.length === 0">
+    <nav class="navbar">
+        <img src="../../../assets/icons/arrow_back.svg" alt="" [routerLink]="['/profile', this.user.id_utilizador]">
+        <h3>Settings</h3>
+        <br>
+    </nav>
+
+    <header class="header_wrapper">
+        <img class="header_wrapper__background" src="../../../assets/images/city.jpg" alt="">
+        <div class="header_wrapper__balance">
+            <h3>Balance</h3>
+            <span>{{user.saldo | currency:"":""}}€</span>
+        </div>
+        <div class="header_wrapper__avatar">
+            <img src="https://avatars.dicebear.com/api/bottts/{{ user.id_utilizador }}.svg" alt="">
+        </div>
+    </header>
+
+    <div class="user_information">
+        <span class="user_information__name">{{ user.nome }}</span>
+        <span class="user_information__email">{{ user.email }}</span>
+    </div>
+
+    <div class="settings_menu">
+        <div class="settings_menu__option" (click)="openModal('profile')">
+            <img class="settings_menu__option_icon" src="../../../assets/icons/secondprofile.svg" alt="">
+            Profile Settings
+            <img class="settings_menu__option_arrow" src="../../../assets/icons/smallArrow.svg" alt="">
+        </div>
+        <div class="settings_menu__option" (click)="openModal('vehicles')">
+            <img class="settings_menu__option_icon" src="../../../assets/icons/bluecar.svg" alt="">
+            Vehicles Management
+            <img class="settings_menu__option_arrow" src="../../../assets/icons/smallArrow.svg" alt="">
+        </div>
+        <div class="settings_menu__option" (click)="openModal('balance')">
+            <img class="settings_menu__option_icon" src="../../../assets/icons/money.svg" alt="">
+            Balance Management
+            <img class="settings_menu__option_arrow" src="../../../assets/icons/smallArrow.svg" alt="">
+        </div>
+        <div class="settings_menu__option" (click)="openModal('transactions')">
+            <img class="settings_menu__option_icon" src="../../../assets/icons/handshake.svg" alt="">
+            Transactions History
+            <img class="settings_menu__option_arrow" src="../../../assets/icons/smallArrow.svg" alt="">
+        </div>
+    </div>
+
+    <img class="full_logo" src="../../../assets/logos/full_logo.svg" alt="">
+</section>
+

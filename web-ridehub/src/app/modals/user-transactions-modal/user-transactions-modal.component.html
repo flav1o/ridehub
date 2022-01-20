@@ -1,0 +1,20 @@
+<app-pdf-window *ngIf="componentToggler.pdfGenerator"></app-pdf-window>
+
+<section id="user_transactions" class="slide-in-bottom" #div>
+  <img src="../../../assets/icons/close_small.svg" alt="" (click)="hideTransactions(div)">
+  <nav id="user_transactions__nav">Transactions History
+      <hr>
+  </nav>
+  <div class="user_transactions__wrapper">
+    <span *ngIf="userTransactions.length === 0">NO TRANSACTIONS YET!</span>
+    <div class="user_transactions__wrapper__item" *ngFor="let item of userTransactions">
+        <img src="../../../assets/icons/{{item.tipo}}.svg" alt="">
+        <span>{{item.montante | currency:'':''}}€</span>
+        <div class="transaction_information">
+            <span class="transaction_information__date">{{item.data | date:'dd/MM/yyyy HH:mm'}}</span>
+            <span class="transaction_information__id">{{item.id_transacao}}</span>
+        </div>
+    </div>
+    <img class="download-button" src="../../../assets/icons/download.svg" alt="" (click)="savePDF()">
+  </div>
+</section>

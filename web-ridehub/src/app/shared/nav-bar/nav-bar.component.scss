@@ -1,0 +1,52 @@
+@import '../../../styles.scss';
+
+.nav_bar{
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-basis: 1;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    background-color: #e5e5e5e5;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+
+    img {
+        width: 23px;
+        cursor: pointer;
+        transition-duration: .3s;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+
+        &:last-child {
+            width: 19px;
+        }
+
+        &:active {
+            transform: translateY(1px);
+        }
+    }
+}
+
+
+// Large devices (desktops, less than 1200px)
+@media (min-width: 1199.98px) {
+    .nav_bar {
+        width: 50%;
+        left: 50%;
+        bottom: 1vh;
+        transform: translateX(-50%);
+        border-radius: 15px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+        img {
+            width: 25px;
+        }
+    }     
+}

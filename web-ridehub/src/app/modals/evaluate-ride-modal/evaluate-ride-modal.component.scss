@@ -1,0 +1,131 @@
+@import "../../../styles.scss";
+
+.evaluate-ride{
+  width: 100vw;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: $main-font;
+  align-items: center;
+  background-color: $background-color;
+  position: fixed;
+  bottom: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 0vh 0vw;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+  z-index: 998;
+}
+
+.close_button {
+  position: absolute;
+  top: 2vh;
+  right: 3vw;
+  cursor: pointer;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.add_review{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type=submit].create {
+  color: #fff;
+  background-color: $primary-color;
+  cursor: pointer;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 15vw;
+  margin-top: 2vh;
+  margin-bottom: 5%;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+
+  &:active {
+    transform: translateY(3px);
+  }
+}
+
+textarea.evaluation_field{
+  width: 90%;
+  max-height: 50%;
+  resize: none;
+  margin-top: 10%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  overflow-y: auto;
+  font-family: $main-font;
+}
+
+.star_rating{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10%;
+}
+
+label {
+	display: block;
+	margin: 0 0.2em;
+	text-align: center;
+	-webkit-tap-highlight-color: transparent;
+}
+
+label:first-child input {
+	border-radius: 0.5em 0 0 0.5em;
+}
+label:last-child input {
+	border-radius: 0 0.5em 0.5em 0;
+}
+
+.radio {
+	border-radius: 0;
+	box-shadow:
+		0.15em 0.15em 1em #f3f4f8 inset,
+		-0.15em -0.15em 1em $primary-color inset,
+		0.15em 0.15em 0.45em $secondary-color,
+		-0.15em -0.15em 0.45em #ffffff;
+	cursor: pointer;
+	display: block;
+	margin-bottom: 0.5em;
+	width: 100%;
+	height: 1em;
+	transition: all 0.1s ease-in-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input:checked {
+	box-shadow:
+		-0.15em -0.15em 0.45em #f3f4f8 inset,
+		0.15em 0.15em 0.45em #f3f4f8 inset,
+		0 0 0 #c1c2c5,
+		0 0 0 #ffffff;
+}
+
+input:checked + span {
+	opacity: 1;
+}
+
+input:focus {
+	outline: transparent;
+}
+
+input + span {
+	opacity: 0.65;
+	transition: opacity 0.1s ease-in-out;
+}
+
+
+
