@@ -1,5 +1,5 @@
 mapboxgl.accessToken =
-  "pk.eyJ1IjoidG91a2x3ZXoiLCJhIjoiY2t2M3VvZ2Q1MGEwdTJ3cGcwMHQ3Zjh5eiJ9.LsgKO5Lxz9x55lv-5C7cmQ"
+  ""
 
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
   enableHighAccuracy: true
@@ -11,7 +11,7 @@ var marker = [];
 
 async function getMarkers() {
   let rideID = localStorage.getItem('rideID');
-  const url = `http://ec2-35-173-187-5.compute-1.amazonaws.com/v1/ride/${rideID}`;
+  const url = `http://localhost:4200/v1/ride/${rideID}`;
   let request = await fetch(url, {
     method: 'get',
     headers: new Headers({
