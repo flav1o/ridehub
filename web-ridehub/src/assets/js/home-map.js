@@ -1,6 +1,5 @@
 mapboxgl.accessToken =
-  "pk.eyJ1IjoidG91a2x3ZXoiLCJhIjoiY2t2M3VvZ2Q1MGEwdTJ3cGcwMHQ3Zjh5eiJ9.LsgKO5Lxz9x55lv-5C7cmQ"
-
+  "";
 var nav = navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
   enableHighAccuracy: true
 })
@@ -8,7 +7,7 @@ var nav = navigator.geolocation.getCurrentPosition(successLocation, errorLocatio
 var data = [];
 var marker = [];
 async function getMarkers() {
-  const url = `http://ec2-35-173-187-5.compute-1.amazonaws.com/v1/ride`;
+  const url = `http://localhost/v1/ride`;
   let request = await fetch(url, {
     method: 'get',
     headers: new Headers({
